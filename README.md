@@ -6,19 +6,21 @@
 
 ---
 
-### Turn it on
+### Show the time
 
 ```
 $ ./clock
 ```
 
-### Turn it off
+### Make it "real"
 
-`ctrl+c`
+```console
+$ while true; do clear; ./clock ; sleep 5; done
+```
 
 ### And it works
-![bash clock](preview.png)
 
+![bash clock](preview.png)
 
 ## Philosophy
 

@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-declare -A font
+declare -A font=()
 
 font[0]="_░░░_
 ░___░
@@ -77,7 +77,6 @@ _░░░_
 ░___░
 _░░░_"
 
-
 font[9]="_░░░_
 ░___░
 ░___░
@@ -94,7 +93,7 @@ __░__
 _____
 _____"
 
-function show_clock {
+main() {
   time=$1
   for y in {0..6}; do
     x=$((y * 6))
@@ -104,14 +103,8 @@ function show_clock {
       line="${digit:$x:5}  "
       echo -n "${line//_/ }"
     done
-    echo ""
+    echo
   done
 }
 
-while true; do
-  clear
-  tput civis
-  show_clock "$(date +%H:%M)"
-  tput cnorm
-  sleep 5
-done
+main "${1:-$(date +%H:%M)}"
